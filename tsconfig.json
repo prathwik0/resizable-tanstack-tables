@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "target": "ES2018",
+        "module": "ESNext",
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "declaration": true,
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "strict": true,
+        "isolatedModules": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "jsx": "react",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "dist",
+        "declarationDir": "dist",
+        "removeComments": false,
+        "checkJs": false,
+        "allowJs": true,
+        "resolveJsonModule": true
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/*.test.ts",
+        "**/*.test.tsx"
+    ]
+}

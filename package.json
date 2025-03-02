@@ -1,0 +1,65 @@
+{
+  "name": "resizable-tanstack-tables",
+  "version": "0.1.0",
+  "description": "A React hook for creating resizable TanStack tables with optimal performance",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src",
+    "prepublishOnly": "pnpm run build",
+    "clean": "rm -rf dist",
+    "prebuild": "pnpm run clean",
+    "prepare": "pnpm run build"
+  },
+  "keywords": [
+    "react",
+    "tanstack",
+    "table",
+    "data-table",
+    "resizable",
+    "resize",
+    "hook",
+    "shadcn"
+  ],
+  "author": "prathwik",
+  "license": "MIT",
+  "peerDependencies": {
+    "@tanstack/react-table": "^8.0.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prathwik0/resizable-tanstack-tables"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
