@@ -5,7 +5,8 @@ tests/
 
 # Config files
 tsconfig.json
-tsup.config.ts
+tsconfig.node.json
+vite.config.ts
 .eslintrc
 .prettierrc
 .github/

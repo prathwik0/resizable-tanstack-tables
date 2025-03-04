@@ -14,7 +14,7 @@ interface ColumnConstraint {
 
 /**
  * Distributes pixels proportionally across columns based on their sizes and constraints.
- * 
+ *
  * @param columnSizes - Array of current column sizes in pixels
  * @param pixelsToDistribute - Number of pixels to distribute (positive for growth, negative for shrinking)
  * @param constraints - Array of column constraints containing min/max size information
@@ -106,11 +106,11 @@ function distributePixelsProportionally(
 
 /**
  * A React hook for creating resizable TanStack Table columns with optimal performance.
- * 
+ *
  * This hook provides state management and utility functions for implementing resizable
  * columns in TanStack Table v8+. It handles proportional resizing, respects min/max
  * column width constraints, and optimizes performance for large datasets.
- * 
+ *
  * @example
  * ```tsx
  * const {
@@ -121,7 +121,7 @@ function distributePixelsProportionally(
  *   tableContainerRef,
  *   updateColumnConstraints,
  * } = useResize();
- * 
+ *
  * // Use with TanStack Table
  * const table = useReactTable({
  *   // ... your table config
@@ -134,13 +134,13 @@ function distributePixelsProportionally(
  *   onColumnSizingInfoChange: setColumnSizingInfo,
  *   columnResizeMode: 'onChange',
  * });
- * 
+ *
  * // Update column constraints when columns change
  * React.useEffect(() => {
  *   updateColumnConstraints(table);
  * }, [columns, updateColumnConstraints, table]);
  * ```
- * 
+ *
  * @returns An object containing state and utility functions for column resizing
  */
 export function useResize(): UseResizeReturn {
@@ -161,7 +161,7 @@ export function useResize(): UseResizeReturn {
     ColumnConstraint[]
   >([]);
 
-  const tableContainerRef = React.useRef<HTMLDivElement>(null);
+  const tableContainerRef = React.useRef<HTMLDivElement | null>(null);
   const [containerWidth, setContainerWidth] = React.useState(0);
 
   // Update container width on mount and window resize
@@ -346,39 +346,43 @@ export interface UseResizeReturn {
    * Current column sizing state that tracks the width of each column
    */
   columnSizing: ColumnSizingState;
-  
+
   /**
    * Function to update column sizing state
    * @param updaterOrValue - New column sizing state or updater function
    */
   setColumnSizing: (
-    updaterOrValue: ColumnSizingState | ((old: ColumnSizingState) => ColumnSizingState)
+    updaterOrValue:
+      | ColumnSizingState
+      | ((old: ColumnSizingState) => ColumnSizingState)
   ) => void;
-  
+
   /**
    * Current column sizing info state that tracks resizing status
    */
   columnSizingInfo: ColumnSizingInfoState;
-  
+
   /**
    * Function to update column sizing info state
    * @param updaterOrValue - New column sizing info state or updater function
    */
-  setColumnSizingInfo: React.Dispatch<React.SetStateAction<ColumnSizingInfoState>>;
-  
+  setColumnSizingInfo: React.Dispatch<
+    React.SetStateAction<ColumnSizingInfoState>
+  >;
+
   /**
    * Ref to attach to the table container element
    */
-  tableContainerRef: React.RefObject<HTMLDivElement>;
-  
+  tableContainerRef: React.RefObject<HTMLDivElement | null>;
+
   /**
    * Function to update column constraints based on the current table state
    * @param table - TanStack Table instance
    */
   updateColumnConstraints: (table: Table<any>) => void;
-  
+
   /**
    * Current width of the table container in pixels
    */
   containerWidth: number;
-} 
+}
