@@ -1,31 +1,56 @@
 # Resizable TanStack Tables
 
-A lightweight, high-performance React hook for creating resizable [TanStack Table](https://tanstack.com/table/latest) columns with optimal performance.
+Play with the code at [CodePen](https://codepen.io/prathwik0/pen/OPJpepv).
+
+This is a lightweight React hook for creating resizable [TanStack Table](https://tanstack.com/table/latest) columns with customized behavior.
 
 ## Features
 
+- 🎉 Play with the code at [CodePen](https://codepen.io/prathwik0/pen/OPJpepv).
 - 🔄 Smooth column resizing with proportional distribution
 - 📏 Respects min/max column width constraints
 - 🚀 Optimized for performance with large datasets
 - 📱 Responsive design that adapts to container width
 - 🧩 Easy integration with TanStack Table v8+
-- 📦 Works with React 16.8+ (requires Hooks)
-- 🔧 TypeScript and JavaScript compatible
+- 📦 Works with React 16.8+
+- 🔧 Compatible with TypeScript and JavaScript
+- 🔄 Use as esm, cjs imports or via CDN
 
 ## Installation
 
-```bash
-# npm
-npm install resizable-tanstack-tables
+You can install the package using one of the following package managers:
 
-# yarn
-yarn add resizable-tanstack-tables
+- **npm**
 
-# pnpm
-pnpm add resizable-tanstack-tables
+  ```bash
+  npm install resizable-tanstack-tables
+  ```
 
-# bun
-bun add resizable-tanstack-tables
+- **pnpm**
+
+  ```bash
+  pnpm add resizable-tanstack-tables
+  ```
+
+- **bun**
+  ```bash
+  bun add resizable-tanstack-tables
+  ```
+
+You can also use the package directly from a CDN:
+
+```html
+<!-- From unpkg -->
+<script src="https://unpkg.com/resizable-tanstack-tables@latest/dist/index.umd.js"></script>
+
+<!-- From jsDelivr -->
+<script src="https://cdn.jsdelivr.net/npm/resizable-tanstack-tables@latest/dist/index.umd.js"></script>
+```
+
+When using via CDN, the `useResize` hook is available via the global variable `ResizableTanstackTables`:
+
+```js
+const { useResize } = ResizableTanstackTables;
 ```
 
 ## Quick Start
@@ -199,27 +224,6 @@ const MemoizedTableBody = React.memo(
   ) : (
     <TableBodyContent table={table} />
   );
-}
-```
-
-## JavaScript Compatibility
-
-This package works seamlessly with both TypeScript and JavaScript projects. If you're using JavaScript, you can import and use the hook just like in TypeScript:
-
-```jsx
-import { useResize } from "resizable-tanstack-tables";
-
-function MyTable() {
-  const {
-    columnSizing,
-    setColumnSizing,
-    columnSizingInfo,
-    setColumnSizingInfo,
-    tableContainerRef,
-    updateColumnConstraints,
-  } = useResize();
-
-  // ... rest of your component
 }
 ```
 
